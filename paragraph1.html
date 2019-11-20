@@ -1,0 +1,40 @@
+<html>
+    <head>
+            <script type="text/javascript">
+                function fileRead(input) {
+              var file = input.files[0];
+              var reader = new FileReader();
+              reader.onload = function(){
+                var x =reader.result.split("\n"); 
+                //console.log(x);
+                for(i=0;i<x.length;i++){
+                    //console.log(x);
+                  var y=document.createElement("p");
+                  var data=x[i];  
+                  //console.log(data); 
+                  //console.log(n);
+                    var n = i + 2 ;
+                    if(n%2==0){
+                        y.innerText= x;
+                      document.body.appendChild(y); 
+                    } 
+                    var pat ="**************";
+                   if(n%2==1){
+                        y.innerText= pat;
+                      document.body.appendChild(y);
+                    }
+                   
+                       console.log(y)
+                }
+              }  
+              reader.readAsText(file);
+                }
+            </script>
+    </head>
+    <body>
+      <p>patterns to<strong> be print on document </strong>based on file data</p>
+      <title>patterns to be printed in paragraph element</title>
+      <input type="file" id="para" onchange="fileRead(this)">
+        
+    </body>
+</html>
